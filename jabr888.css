@@ -1,0 +1,18 @@
+body {
+    background-color: aliceblue;
+    width: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+a:hover{
+    background-color: grey;
+    color: ivory;
+}
+
+.ul{
+    display: block;
+
+}
