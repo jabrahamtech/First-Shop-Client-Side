@@ -12,7 +12,17 @@ a:hover{
     color: ivory;
 }
 
-.ul{
+ul{
     display: block;
+    list-style: none;
+}
 
+li{
+    display: inline;
+    float: right;
+    margin-right: 5%;
+}
+
+a{
+    font-size: 200%;
 }

@@ -33,3 +33,5 @@ const showGuestBook = () => {
     document.getElementById("UserReg").style.display = "none";
     document.getElementById("GuestBook").style.display = "block";
 }
+
+window.onload = showHome;
