@@ -99,21 +99,23 @@ const getStaff = () => {
 
 
 const register = () => {
-    const fetchPromise = fetch("http://localhost:5000/api​/Register", {
-        headers: {
-            "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({
-            "userName": document.getElementById("UserName").value,
-            "password": document.getElementById("Password").value,
-            "address": document.getElementById("address").value
-        }),
-    })
-    const streamPromise = fetchPromise.then((response) => response.text());
-    streamPromise.then(() =>
-        document.getElementById("confirmation").innerHTML = response.text()
-    );
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "userName": `${document.getElementById('UserName').value}`,
+      "password": `${document.getElementById('Password').value}`,
+      "address": `${document.getElementById('address').value}`
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("http://localhost:5000/api/Register", requestOptions).then(response => response.text()).then(result => document.getElementById("confirmation").innerHTML = `<b>${result}</b>`);
 }
 
 const buy = (itemid) => {
